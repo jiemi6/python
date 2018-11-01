@@ -1,0 +1,14 @@
+DEBUG:root:-----------开始checkin szzdm 。。。
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): zhiyou.smzdm.com
+DEBUG:urllib3.connectionpool:https://zhiyou.smzdm.com:443 "POST /user/login/ajax_check HTTP/1.1" 200 None
+DEBUG:root:200
+DEBUG:root:OK
+DEBUG:root:登录成功了
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1
+DEBUG:urllib3.connectionpool:http://127.0.0.1:1080 "POST http://zhiyou.smzdm.com/user/checkin/jsonp_checkin?callback= HTTP/1.1" 301 184
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): zhiyou.smzdm.com
+DEBUG:urllib3.connectionpool:https://zhiyou.smzdm.com:443 "GET /user/checkin/jsonp_checkin?callback= HTTP/1.1" 200 None
+DEBUG:root:200
+DEBUG:root:OK
+DEBUG:root:www.smzdm.com 打卡成功了
+DEBUG:root:返回的信息 ：{u'slogan': u'<div class="signIn_data">\u4eca\u65e5\u5df2\u9886<span class="red">13</span>\u79ef\u5206\uff0c\u518d\u7b7e\u5230<span class="red">2</span>\u5929\u53ef\u9886<span class="red">15</span>\u79ef\u5206</div>', u'gold': 20, u'point': 9608, u'add_point': 0, u'rank': 20, u'checkin_num': u'1', u'exp': 9899, u'prestige': 10}
