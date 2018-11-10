@@ -36,13 +36,15 @@ class DBPipeline(object):
 						s_str = s1.encode('unicode-escape').decode('string_escape')
 
 						unixtime = int(s_str)//100
-						#print unixtime
+						print unixtime
 
 						dateArray = time.localtime(unixtime)
 						unixtimeStr = time.strftime("%Y-%m-%d %H:%M:%S",dateArray)
-							
-						#print dateArray
-						#print unixtimeStr
+						#dateArray = datetime.datetime.utcfromtimestamp(unixtime)
+						#unixtimeStr = dateArray.strftime("%Y-%m-%d %H:%M:%S")
+						
+						print dateArray
+						print unixtimeStr
 						# ≤Â»Î ˝æ›
 						self.cursor.execute(
 						    """REPLACE INTO `zhi_items` (`id`, `title`,`price`,`link`,`zhide`,`buzhi`,`collectNum`,`commentNum`,`publishTime`,`store`,`timesort`,`timeStr`)

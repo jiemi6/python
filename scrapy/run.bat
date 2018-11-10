@@ -1,1 +1,1 @@
-python E:\python_ws\scrapy\main.py
+python E:\python_git\scrapy\main.py
