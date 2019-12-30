@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for scrapy_smzdm project
+# Scrapy settings for my_scrapy project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,16 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'scrapy_smzdm'
+BOT_NAME = 'my_scrapy'
 
-SPIDER_MODULES = ['scrapy_smzdm.spiders']
-NEWSPIDER_MODULE = 'scrapy_smzdm.spiders'
-
-FEED_EXPORT_ENCODING = 'utf-8'
+SPIDER_MODULES = ['my_scrapy.spiders']
+NEWSPIDER_MODULE = 'my_scrapy.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'scrapy_smzdm (+http://www.yourdomain.com)'
+#USER_AGENT = 'my_scrapy (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -49,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'scrapy_smzdm.middlewares.ScrapySmzdmSpiderMiddleware': 543,
+#    'my_scrapy.middlewares.MyScrapySpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'scrapy_smzdm.middlewares.ScrapySmzdmDownloaderMiddleware': 543,
+#    'my_scrapy.middlewares.MyScrapyDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -67,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'scrapy_smzdm.pipelines.DBPipeline': 10,
+   'my_scrapy.pipelines.Smzdm_DBPipeline': 30,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,8 +88,7 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-MYSQL_HOST = '127.0.0.1'
-MYSQL_DBNAME = 'smzdm'
-MYSQL_USER = 'root'
-MYSQL_PASSWD = 'root'
-MYSQL_PORT= 3306
+
+HTTPERROR_ALLOWED_CODES = [403]
+
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'

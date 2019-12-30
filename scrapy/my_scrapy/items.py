@@ -8,8 +8,10 @@
 import scrapy
 
 
-class SmItem(scrapy.Item):
-		zhide = scrapy.Field()
+class MyScrapyItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    pass
 
 class SmzdmItem(scrapy.Item):
 		articleid = scrapy.Field()

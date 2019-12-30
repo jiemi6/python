@@ -1,2 +1,2 @@
 #! /bin/bash
-python /minkey/main.py
+python /minkey/start_smzdm.py
