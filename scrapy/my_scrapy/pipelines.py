@@ -5,7 +5,7 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import pymysql
-from scrapy.conf import settings
+from my_scrapy.db_settings import db_settings
 import time
 import datetime
 
@@ -17,11 +17,11 @@ class MyScrapyPipeline(object):
 class Smzdm_DBPipeline(object):
     def __init__(self):
         self.connect = pymysql.connect(
-            host=settings.get('MYSQL_HOST'),
-            port=settings.get('MYSQL_PORT'),
-            db=settings.get('MYSQL_DBNAME'),
-            user=settings.get('MYSQL_USER'),
-            passwd=settings.get('MYSQL_PASSWD'),
+            host=db_settings.MYSQL_HOST,
+            port=db_settings.MYSQL_PORT,
+            db=db_settings.MYSQL_DBNAME,
+            user=db_settings.MYSQL_USER,
+            passwd=db_settings.MYSQL_PASSWD,
             charset='utf8',
             use_unicode=True)
         # 通过cursor执行增删查改

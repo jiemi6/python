@@ -92,9 +92,3 @@ ITEM_PIPELINES = {
 HTTPERROR_ALLOWED_CODES = [403]
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
-
-MYSQL_HOST = 'minkey.iask.in'
-MYSQL_DBNAME = 'smzdm'
-MYSQL_USER = 'smzdm'
-MYSQL_PASSWD = 'smzdm'
-MYSQL_PORT= 33307
