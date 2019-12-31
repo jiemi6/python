@@ -2,16 +2,13 @@
 # -*- coding: UTF-8 -*-
 
 import requests
-import os
-import logging
-
-logging.basicConfig(filename = os.path.join(os.getcwd(), 'checkin.log'), level = logging.DEBUG)
-
+import logger
+logging = logger.logger
 
 def checkin():
-	logging.debug('---------www.so-kindle.com checkin start... ')
+	logging.debug('---------skebooks.com checkin start... ')
 	# www.so-kindle.com checkin
-	url = 'https://www.so-kindle.com/loginform'
+	url = 'https://skebooks.com/loginform'
 	r = requests.post(url, data={'account':'minkey','password':'1987611'})
 	logging.debug(r.status_code)
 	#logging.debug((r.headers)
@@ -21,6 +18,6 @@ def checkin():
 	#失败的  {'message: "用户名或者密码错误！", status: -1, data: null}
 	resO = r.json();
 	if resO['status'] == 1 :
-		logging.debug('www.so-kindle.com checkin success ')
+		logging.debug('skebooks.com checkin success ')
 	else :
-		logging.debug('www.so-kindle.com checkin faild. Msg'+resO['message']);
+		logging.debug('skebooks.com checkin faild. Msg'+resO['message']);

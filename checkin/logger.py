@@ -1,26 +1,30 @@
-﻿#!/usr/bin/python
-# -*- coding: UTF-8 -*-
+﻿import logging,sys
 
-import os
-import logging
+filelog = True
+path = r'log.txt'
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+logger = logging.getLogger('log')
+logger.setLevel(logging.DEBUG)
 
-#logging.basicConfig(filename = os.path.join(os.getcwd(), 'checkin.log'), level = logging.DEBUG)
-logging.basicConfig(level = logging.DEBUG,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+# 调用模块时,如果错误引用，比如多次调用，每次会添加Handler，造成重复日志，这边每次都移除掉所有的handler，后面在重新添加，可以解决这类问题
+while logger.hasHandlers():
+    for i in logger.handlers:
+        logger.removeHandler(i)
 
-console = logging.StreamHandler()
-console.setLevel(logging.DEBUG)
-logger.addHandler(console)
+# file log
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+if filelog:
+    fh = logging.FileHandler(path,encoding='utf-8')
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
 
-handler = logging.FileHandler("checkin.log")
-handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+# console log
+formatter = logging.Formatter('%(message)s')
+ch = logging.StreamHandler(sys.stdout)
+ch.setLevel(logging.DEBUG)
+ch.setFormatter(formatter)
+logger.addHandler(ch)
 
-
-logger.warn("22222222222222")
+if __name__ == '__main__':
+    logger.info("这是一个测试")
